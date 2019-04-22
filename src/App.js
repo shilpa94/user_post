@@ -20,7 +20,8 @@ class App extends Component {
       error: null,
       isLoaded: false,
       user: [],
-      open: false
+      open: false,
+      modalUser: ""
     };
   }
 
@@ -44,8 +45,8 @@ class App extends Component {
       )
   }
 
-  handleOpen = () => {
-    this.setState({ open: true });
+  handleOpen = (u) => {
+    this.setState({ open: true, modalUser: u});
   };
 
   handleClose = () => {
@@ -94,25 +95,25 @@ class App extends Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {user.map(user => (
-                    <TableRow key={user.id} onClick={this.handleOpen}>
-                      <TableCell>{user.name}</TableCell>
-                      <TableCell>{user.phone}</TableCell>
+                  {user.map(u => (
+                    <TableRow key={u.id}>
+                      <TableCell>{u.name}</TableCell>
+                      <TableCell>{u.phone}</TableCell>
+                      <TableCell>
+                        <Button onClick={() => this.handleOpen(u)}>show</Button>
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </Paper>
-            <Modal 
-              key={user.id} 
+            <Modal
               style={modalStyle}
               open={this.state.open}
-              onClose={this.handleClose}
-             
-            >   
+              onClose={this.handleClose} >   
               <div style={paper}>
               <Typography>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.ggjgjhgjgjhgjgjhgjhgjg bjhjhg jhgjhgjhgj jghjgjg jghjg  gjgjgghghggjgg hhhhhhhhhhhhhhh
+                {this.state.modalUser.name}
               </Typography>
               </div>
             </Modal>
