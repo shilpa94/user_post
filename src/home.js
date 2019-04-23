@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
+import { Table, TableBody, TableCell, TableHead, TableRow, Paper, Typography, Modal, Button} from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Posts from './posts';
 
@@ -98,7 +90,7 @@ class Home extends Component {
                         <Button onClick={() => this.handleOpen(u)}>show</Button>
                       </TableCell>
                       <TableCell>
-                        <Link to={{pathname:'/posts'+ u.id}}>posts</Link>
+                        <Link to={{pathname:'/posts&user_id='+ u.id + ''}}>posts</Link>
                       </TableCell>
                     </TableRow>
                   ))}
