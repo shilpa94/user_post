@@ -5,6 +5,7 @@ import {Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, Avatar, I
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { unstable_Box as Box } from '@material-ui/core/Box';
 import Comments from './comments';
+import Cards from './card';
 
 class Posts extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Posts extends Component {
       error: null,
       isLoaded: false,
       posts: [],
-      expanded: false
+      // expanded: false
     };
   }
     componentDidMount() {
@@ -36,14 +37,14 @@ class Posts extends Component {
       )
     }
 
-  handleExpandClick = () => {
-    this.setState(state => ({ expanded: !state.expanded }));
-  };
+  // handleExpandClick = () => {
+  //   this.setState(state => ({ expanded: !state.expanded }));
+  // };
 
   render() {
-    var cardStyle = {
-       maxWidth: 400
-    }
+    // var cardStyle = {
+    //    maxWidth: 400
+    // }
     console.log(this.props.user_id)
     const { error, isLoaded, posts, comments } = this.state;
     if (error) {
@@ -54,25 +55,7 @@ class Posts extends Component {
         return (
           <div>
             {posts.map(p => (
-              <Card style={cardStyle}>
-                <CardContent>
-                 <p>{p.title}</p>
-                </CardContent>
-                <CardActions >
-                  <IconButton
-                    // className={classnames(classes.expand, {
-                    //   [classes.expandOpen]: this.state.expanded,
-                    // })}
-                    onClick={this.handleExpandClick}
-                    aria-expanded={this.state.expanded}
-                    aria-label="Show more">
-                    <ExpandMoreIcon />
-                  </IconButton>
-                </CardActions>
-                <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                  <Comments post_id={p.id} />
-                </Collapse>
-              </Card>
+              <Cards post={p} />
             ))}
           </div>
         );
