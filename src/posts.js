@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import {Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, Avatar, IconButton, Typography } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { unstable_Box as Box } from '@material-ui/core/Box';
+import { withStyles, Grid } from '@material-ui/core/styles';
 import Comments from './comments';
 import Cards from './card';
+// import { unstable_Box as Box } from '@material-ui/core/Box';
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 class Posts extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Posts extends Component {
       posts: [],
     };
   }
-    componentDidMount() {
+  componentDidMount() {
     const {user_id} = this.props.location.state
     fetch("https://jsonplaceholder.typicode.com/posts?userId=" + user_id)
       .then(res => res.json())
@@ -47,9 +47,12 @@ class Posts extends Component {
     } else {
         return (
           <div>
+          <Container>
+          <Row>
             {posts.map(p => (
-              <Cards post={p} />
-            ))}
+              <Col xs={4}>
+              <Cards post={p} /></Col>
+            ))}</Row></Container>
           </div>
         );
       }

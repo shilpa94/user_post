@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import {Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, Avatar, IconButton, Typography } from '@material-ui/core';
+import {withStyles, Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, IconButton, Typography, Grid} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Comments from './comments';
 
@@ -21,27 +20,29 @@ class Cards extends Component {
 
   render() {
     var cardStyle = {
-       maxWidth: 400
+       maxWidth:500,
+       height:150,
+       margin:20
     }
     var post = this.props.post;
     return (
-      <Card style={cardStyle}>
-        <CardContent>
-         <p>{post.title}</p>
-        </CardContent>
-        <CardActions >
-          <IconButton
-            onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
-            aria-label="Show more">
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <Comments post_id={post.id} />
-        </Collapse>
-      </Card>
-    )
+        <Card style={cardStyle}>
+          <CardContent>
+            <p>{post.title}</p>
+          </CardContent>
+          <CardActions >
+            <IconButton
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}
+              aria-label="Show more">
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <Comments post_id={post.id} />
+          </Collapse>
+        </Card> 
+    );
   }
 }
 

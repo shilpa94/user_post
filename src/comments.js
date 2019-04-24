@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, Avatar, IconButton, Typography } from '@material-ui/core';
+import {CardContent, Typography } from '@material-ui/core';
 
 class Comments extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Comments extends Component {
           }
         </Typography>
       </CardContent>
-    )  
+    );  
   }
 }
 
