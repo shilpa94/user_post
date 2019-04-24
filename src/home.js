@@ -90,7 +90,7 @@ class Home extends Component {
                         <Button onClick={() => this.handleOpen(u)}>show</Button>
                       </TableCell>
                       <TableCell>
-                        <Link to={{pathname:'/posts&user_id='+ u.id + ''}}>posts</Link>
+                        <Link to={{pathname:'/posts', state: { user_id: u.id}}}>posts</Link>
                       </TableCell>
                     </TableRow>
                   ))}

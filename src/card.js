@@ -10,7 +10,7 @@ class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
+      // posts: [],
       expanded: false
     };
   }
@@ -31,9 +31,6 @@ class Cards extends Component {
         </CardContent>
         <CardActions >
           <IconButton
-            // className={classnames(classes.expand, {
-            //   [classes.expandOpen]: this.state.expanded,
-            // })}
             onClick={this.handleExpandClick}
             aria-expanded={this.state.expanded}
             aria-label="Show more">

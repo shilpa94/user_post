@@ -14,11 +14,11 @@ class Posts extends Component {
       error: null,
       isLoaded: false,
       posts: [],
-      // expanded: false
     };
   }
     componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/posts?userId=1")
+    const {user_id} = this.props.location.state
+    fetch("https://jsonplaceholder.typicode.com/posts?userId=" + user_id)
       .then(res => res.json())
       .then(
         (result) => {
@@ -37,15 +37,8 @@ class Posts extends Component {
       )
     }
 
-  // handleExpandClick = () => {
-  //   this.setState(state => ({ expanded: !state.expanded }));
-  // };
-
   render() {
-    // var cardStyle = {
-    //    maxWidth: 400
-    // }
-    console.log(this.props.user_id)
+
     const { error, isLoaded, posts, comments } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
