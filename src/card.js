@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {withStyles, Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, IconButton, Typography, Grid} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import cyan from '@material-ui/core/colors/cyan';
 import Comments from './comments';
 
 
@@ -20,15 +21,16 @@ class Cards extends Component {
 
   render() {
     var cardStyle = {
-       maxWidth:500,
-       height:150,
+       width:900,
+       minHeight:150,
        margin:20
     }
     var post = this.props.post;
     return (
         <Card style={cardStyle}>
           <CardContent>
-            <p>{post.title}</p>
+            <Typography variant="h5" color="primary">{post.title}</Typography>
+            <Typography>{post.body}</Typography>
           </CardContent>
           <CardActions >
             <IconButton
@@ -37,6 +39,7 @@ class Cards extends Component {
               aria-label="Show more">
               <ExpandMoreIcon />
             </IconButton>
+            <Typography >Comments</Typography>
           </CardActions>
           <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
             <Comments post_id={post.id} />

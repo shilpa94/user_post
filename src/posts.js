@@ -7,6 +7,7 @@ import Cards from './card';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
+
 class Posts extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +39,6 @@ class Posts extends Component {
     }
 
   render() {
-
     const { error, isLoaded, posts, comments } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -47,12 +47,11 @@ class Posts extends Component {
     } else {
         return (
           <div>
-          <Container>
-          <Row>
-            {posts.map(p => (
-              <Col xs={4}>
-              <Cards post={p} /></Col>
-            ))}</Row></Container>
+            <Container className="d-flex flex-column align-items-center">
+                {posts.map(p => (
+                  <Cards post={p} />
+                ))}
+            </Container>
           </div>
         );
       }

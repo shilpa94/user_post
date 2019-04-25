@@ -32,13 +32,18 @@ class Comments extends Component {
   }
 
   render() {
+    var commentStyle={
+      background:"#fce4ec",
+      borderRadius: "10px",
+      margin:"20px"
+    }
     return(
       <CardContent>
-        <Typography paragraph>
+        <Typography>
           { this.state.comments.map(
             cmt => 
               (
-                <p>{cmt.body}</p>
+                <Typography style={commentStyle}>{cmt.body}</Typography>
               )
             )
           }
