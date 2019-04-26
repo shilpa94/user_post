@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Table, TableBody, TableCell, TableHead, TableRow, Paper, Typography, Modal, Button, Avatar, List, ListItem, ListItemText} from '@material-ui/core';
+import { withStyles, Table, TableBody, TableCell, TableHead, TableRow, Paper,
+        Typography, Modal, Button, Avatar, List, ListItem, ListItemText} from 
+        '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import Divider from '@material-ui/core/Divider';
@@ -48,9 +49,6 @@ class Home extends Component {
   };
 
   render() {
-    var tableStyle = {
-      // minWidth: 200
-    }
     var av = {
        color: '#fff',
     backgroundColor: deepPurple[500],
@@ -61,7 +59,6 @@ class Home extends Component {
     var modalStyle = {
       top: '10%',
       left: '10%'
-
     }
     var paper = {
       width: '50%',
@@ -104,7 +101,7 @@ class Home extends Component {
         return (
           <div>
             <Paper style={paperStyle}>
-              <Table style={tableStyle}>
+              <Table>
                 <TableHead>
                   <TableRow>
                     <TableCell></TableCell>

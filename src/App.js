@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Posts from './posts';
-import Home from './home';
 import PropTypes from 'prop-types';
 import { withStyles, Typography, AppBar, Toolbar, SvgIcon} from '@material-ui/core';
+import Posts from './posts';
+import Home from './home';
 
 class App extends Component {
   render() {

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Grid } from '@material-ui/core/styles';
+import { Container, Row, Col } from 'react-bootstrap';
 import Comments from './comments';
 import Cards from './card';
-// import { unstable_Box as Box } from '@material-ui/core/Box';
-import { Container, Row, Col } from 'react-bootstrap';
-
-
 
 class Posts extends Component {
   constructor(props) {
@@ -49,13 +46,13 @@ class Posts extends Component {
           <div>
             <Container className="d-flex flex-column align-items-center">
                 {posts.map(p => (
-                  <Cards post={p} />
+                  <Cards key={p.id} post={p} />
                 ))}
             </Container>
           </div>
         );
       }
-    }
+  }
 }
 
 export default Posts;

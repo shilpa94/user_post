@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {withStyles, Card,CardHeader, CardMedia, CardContent, CardActions,Collapse, IconButton, Typography, Grid} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import cyan from '@material-ui/core/colors/cyan';
 import Comments from './comments';
 
 
@@ -10,7 +9,6 @@ class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // posts: [],
       expanded: false
     };
   }

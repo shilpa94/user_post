@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {CardContent, Typography } from '@material-ui/core';
+import {randomColor} from 'randomcolor';
 
 class Comments extends Component {
   constructor(props) {
@@ -31,20 +32,27 @@ class Comments extends Component {
     )
   }
 
-  render() {
+  commentsItem(cmt) {
+    var color = randomColor();
     var commentStyle={
-      background:"#fce4ec",
-      borderRadius: "10px",
+      background: String(color),
+      borderRadius: "5px",
       margin:"20px"
     }
+    return(
+      <div style={commentStyle}>
+       <Typography key={cmt.id}>{cmt.body}</Typography>
+      </div>
+    )
+  }
+
+  render() {
     return(
       <CardContent>
         <Typography>
           { this.state.comments.map(
             cmt => 
-              (
-                <Typography style={commentStyle}>{cmt.body}</Typography>
-              )
+              (this.commentsItem(cmt))
             )
           }
         </Typography>
